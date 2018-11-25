@@ -6,8 +6,8 @@ Code and notes for Geektime column ["The beauty of data structure and algorithm"
 (image from Geektime column)
 
 **Data structures:**
-- Array
-- Link table
+- ~~Array~~
+- Linked list
 - Stack
 - Queue
 - Hash table
