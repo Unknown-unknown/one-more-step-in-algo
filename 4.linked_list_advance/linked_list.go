@@ -1,5 +1,10 @@
 package linked_list_advance
 
+import linked_list "one-more-step-in-algo/3.linked_list"
+
+type LinkedList linked_list.LinkedList
+type Node linked_list.Node
+
 /*
 - 单链表反转
 - 链表中环的检测
@@ -8,32 +13,22 @@ package linked_list_advance
 - 求链表的中间结点
 */
 
-type Node struct {
-	next  *Node
-	value interface{}
+func (l *LinkedList) Reversed() *LinkedList {
+	return nil
 }
 
-type LinkedList struct {
-	head   *Node
-	length int
+func (l *LinkedList) IsRing() bool {
+	return false
 }
 
-func NewNode(v interface{}) *Node {
-	return &Node{nil, v}
+func (ll *LinkedList) Merge(lr *LinkedList) *LinkedList {
+	return nil
 }
 
-func (n *Node) GetNext() *Node {
-	return n.next
+func (l *LinkedList) RemoveBackN(n int) {
+
 }
 
-func (n *Node) GetValue() interface{} {
-	return n.value
+func (l *LinkedList) MiddleNode() *Node {
+	return nil
 }
-
-func NewLinkedList() *LinkedList {
-	return &LinkedList{NewNode(0), 0}
-}
-
-// func (l *LinkedList) Reverse() *LinkedList {
-
-// }
