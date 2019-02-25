@@ -18,4 +18,4 @@
 
 ## 应用举例
 
-**LRU（Least Recently Used）缓存淘汰算法**
+- LRU（Least Recently Used）缓存淘汰算法
