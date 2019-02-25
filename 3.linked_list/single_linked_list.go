@@ -95,7 +95,7 @@ func (l *LinkedList) Remove(n *Node) {
 		}
 	}
 	if current == nil {
-		fmt.Println("node to remove not found")
+		fmt.Printf("node to remove not found")
 		return
 	}
 	l.length--
@@ -103,7 +103,7 @@ func (l *LinkedList) Remove(n *Node) {
 
 func (l *LinkedList) Print() {
 	if l.length == 0 {
-		fmt.Println("empty list")
+		fmt.Printf("empty list")
 		return
 	}
 	current := l.head.next
