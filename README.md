@@ -1,29 +1,37 @@
 # one-more-step-in-algo
 
-Code and notes for Geektime column ["The beauty of data structure and algorithm"](https://time.geekbang.org/column/126).
+极客时间专栏[《数据结构与算法之美》]((https://time.geekbang.org/column/126))的实现代码和一些笔记。
+
+## 主要关注：
+
+- 来历
+- 自身特点
+- 适合解决的问题
+- 实际的应用场景
 
 ![guideline](guideline.jpg)
 (image from Geektime column)
 
-**Data structures:**
-- ~~Array~~
-- Linked list
-- Stack
-- Queue
-- Hash table
-- Binary tree
-- Pile
-- Skip list
-- Graph
+**10个数据结构：**
+- ~~数组~~
+- 链表
+- 栈
+- 队列
+- 散列表
+- 二叉树
+- 堆
+- 跳表
+- 图
+- Trie树
 
-**Algorithm:**
-- Recursion
-- Sort
-- Binary search
-- Search
-- Hash
-- Greedy algorithm
-- Divide conquer
-- Backtracking
-- Dynamic program
-- String match
+**算法：**
+- 递归
+- 排序
+- 二分查找
+- 搜索
+- 哈希算法
+- 贪心算法
+- 分治算法
+- 回溯算法
+- 动态规划
+- 字符串匹配算法
