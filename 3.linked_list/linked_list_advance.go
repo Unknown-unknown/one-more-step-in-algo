@@ -1,7 +1,7 @@
 package linked_list
 
 /* Reverse process step by step:
-head -> 1 -> 2 -> 3 -> nil
+eg: head -> 1 -> 2 -> 3 -> nil
 =) head(pre) -> 1(current) -> 2(tmp) -> 3 -> nil
 =) nil(pre) <- 1(current) -> 2(tmp) -> 3 -> nil
 =) nil <- 1(pre) <- 2(current) -> 3(tmp) -> nil
@@ -25,8 +25,18 @@ func (l *LinkedList) Reversed() {
 	l.head.next = prev
 }
 
-func (l *LinkedList) IsRing() bool {
-
+func (l *LinkedList) HasRing() bool {
+	if l.head != nil {
+		fast := l.head
+		slow := l.head
+		for fast != nil && fast.next != nil {
+			fast = fast.next.next
+			slow = slow.next
+			if fast == slow {
+				return true
+			}
+		}
+	}
 	return false
 }
 

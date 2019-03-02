@@ -1,8 +1,9 @@
 package linked_list
 
 import (
-	"fmt"
 	"testing"
+
+	"gotest.tools/assert"
 )
 
 var l *LinkedList
@@ -21,12 +22,14 @@ func TestReversed(t *testing.T) {
 }
 
 // head -> 1 -> 2 -> 3 -> 4 -> 1
-func TestIsRing(t *testing.T) {
+func TestHasRing(t *testing.T) {
+	assert.Assert(t, !l.HasRing())
+
 	l2 := NewLinkedList()
 	n1 := l2.InsertAfter(l2.head, 1)
 	n2 := l2.InsertAfter(n1, 2)
 	n3 := l2.InsertAfter(n2, 3)
 	n4 := l2.InsertAfter(n3, 4)
 	n4.next = n1
-	fmt.Println(l2.IsRing())
+	assert.Assert(t, l2.HasRing())
 }
