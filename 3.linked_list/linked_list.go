@@ -102,14 +102,14 @@ func (l *LinkedList) Remove(n *Node) {
 }
 
 func (l *LinkedList) Print() {
-	if l.length == 0 {
+	if l == nil || l.length == 0 {
 		fmt.Printf("empty list")
 		return
 	}
 	current := l.head.next
 	desc := ""
 	for current != nil {
-		desc += fmt.Sprintf("%+v", current.GetValue())
+		desc += fmt.Sprintf("%+v", current.value)
 		current = current.next
 		if current != nil {
 			desc += " -> "
