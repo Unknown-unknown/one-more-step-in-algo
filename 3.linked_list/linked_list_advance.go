@@ -73,10 +73,29 @@ func MergeSortedList(ll, lr *LinkedList) *LinkedList {
 	return l
 }
 
-func RemoveBackN(l *LinkedList, n int) *LinkedList {
+func (l *LinkedList) RemoveBackN(n int) *LinkedList {
 	return nil
 }
 
-func MiddleNode(l *LinkedList) *Node {
-	return nil
+func (l *LinkedList) FindMiddleNode() []*Node {
+	if l == nil || l.head == nil {
+		return nil
+	}
+
+	slow := l.head
+	fast := l.head
+	var tmp *Node
+	var middle []*Node
+	for fast != nil && fast.next != nil {
+		tmp = slow
+		slow = slow.next
+		fast = fast.next.next
+	}
+	if l.length%2 == 0 {
+		middle = append(middle, tmp)
+		middle = append(middle, slow)
+	} else {
+		middle = append(middle, slow)
+	}
+	return middle
 }

@@ -55,3 +55,23 @@ func TestMergeSortedList(t *testing.T) {
 	merged := MergeSortedList(ll, lr)
 	merged.Print()
 }
+
+func TestFindMiddleNode(t *testing.T) {
+	// odd number of nodes
+	l2 := NewLinkedList()
+	l2.PushBack(1)
+	l2.PushBack(3)
+	l2.PushBack(5)
+	l2.PushBack(7)
+	l2.PushBack(9)
+	l2.Print()
+	m2 := l2.FindMiddleNode()
+	assert.Assert(t, len(m2) == 1, "middle number count fail for odd")
+	assert.Assert(t, m2[0].GetValue() == 5, "fail to find for odd")
+
+	// even number of nodes
+	m1 := l.FindMiddleNode()
+	assert.Assert(t, len(m1) == 2, "middle number count fail for even")
+	assert.Assert(t, m1[0].GetValue() == 4, "fail to find for even")
+	assert.Assert(t, m1[1].GetValue() == 5, "fail to find for even")
+}
