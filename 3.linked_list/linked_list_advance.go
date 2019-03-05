@@ -1,5 +1,7 @@
 package linked_list
 
+import "fmt"
+
 /* Reverse process step by step:
 eg: head -> 1 -> 2 -> 3 -> nil
 =) head(pre) -> 1(current) -> 2(tmp) -> 3 -> nil
@@ -74,7 +76,26 @@ func MergeSortedList(ll, lr *LinkedList) *LinkedList {
 }
 
 func (l *LinkedList) RemoveBackN(n int) *LinkedList {
-	return nil
+	if l == nil || l.head == nil {
+		return nil
+	}
+
+	slow := l.head
+	fast := l.head
+	for i := 0; i < n; i++ {
+		if fast == nil {
+			fmt.Printf("n is out of range, since list length is %d", l.length)
+			return nil
+		}
+		fast = fast.next
+	}
+
+	for fast != nil {
+		slow = slow.next
+		fast = fast.next
+	}
+	l.Remove(slow)
+	return l
 }
 
 func (l *LinkedList) FindMiddleNode() []*Node {

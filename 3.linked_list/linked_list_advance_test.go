@@ -31,6 +31,7 @@ func TestHasRing(t *testing.T) {
 	n3 := l2.InsertAfter(n2, 3)
 	n4 := l2.InsertAfter(n3, 4)
 	n4.next = n1
+	// impossible to print a linked list with a ring, since it will loop over and over until stack over flow :P
 	assert.Assert(t, l2.HasRing())
 }
 
@@ -54,6 +55,13 @@ func TestMergeSortedList(t *testing.T) {
 
 	merged := MergeSortedList(ll, lr)
 	merged.Print()
+}
+
+func TestRemoveBackN(t *testing.T) {
+	l.RemoveBackN(3)
+	l.Print()
+
+	l.RemoveBackN(11)
 }
 
 func TestFindMiddleNode(t *testing.T) {
