@@ -33,3 +33,25 @@ func TestHasRing(t *testing.T) {
 	n4.next = n1
 	assert.Assert(t, l2.HasRing())
 }
+
+// ll: 1 -> 3 -> 5 -> 7 -> 9
+// lr: 2 -> 4 -> 5 -> 7
+func TestMergeSortedList(t *testing.T) {
+	ll := NewLinkedList()
+	ll.PushBack(1)
+	ll.PushBack(3)
+	ll.PushBack(5)
+	ll.PushBack(7)
+	ll.PushBack(9)
+	ll.Print()
+
+	lr := NewLinkedList()
+	lr.PushBack(2)
+	lr.PushBack(4)
+	lr.PushBack(5)
+	lr.PushBack(7)
+	lr.Print()
+
+	merged := MergeSortedList(ll, lr)
+	merged.Print()
+}

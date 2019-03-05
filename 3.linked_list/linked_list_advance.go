@@ -40,8 +40,37 @@ func (l *LinkedList) HasRing() bool {
 	return false
 }
 
-func Merge(ll, lr *LinkedList) *LinkedList {
-	return nil
+func MergeSortedList(ll, lr *LinkedList) *LinkedList {
+	if ll == nil || ll.head == nil || ll.head.next == nil {
+		return lr
+	}
+	if lr == nil || lr.head == nil || lr.head.next == nil {
+		return ll
+	}
+
+	l := NewLinkedList()
+	llnext := ll.head.next
+	lrnext := lr.head.next
+	for llnext != nil && lrnext != nil {
+		if llnext.GetValue().(int) < lrnext.GetValue().(int) {
+			l.PushBack(llnext.GetValue())
+			llnext = llnext.next
+		} else {
+			l.PushBack(lrnext.GetValue())
+			lrnext = lrnext.next
+		}
+	}
+
+	for llnext != nil {
+		l.PushBack(llnext.GetValue())
+		llnext = llnext.next
+	}
+
+	for lrnext != nil {
+		l.PushBack(lrnext.GetValue())
+		lrnext = lrnext.next
+	}
+	return l
 }
 
 func RemoveBackN(l *LinkedList, n int) *LinkedList {
