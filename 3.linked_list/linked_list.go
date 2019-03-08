@@ -78,6 +78,7 @@ func (l *LinkedList) PushFront(v interface{}) *Node {
 	return l.InsertAfter(l.head, v)
 }
 
+// Normal implementation
 func (l *LinkedList) Remove(n *Node) {
 	if n == nil || l.head == n {
 		return
@@ -98,6 +99,31 @@ func (l *LinkedList) Remove(n *Node) {
 		fmt.Printf("node to remove not found")
 		return
 	}
+	l.length--
+}
+
+/* ... and implementation which is from Linus (of "The mind behind Linux" of TED)
+remove_list_entry(entry) {
+	// The "indirect" pointer points to the *address* of the thing we'll update
+	indirect = &head;
+
+	// Walk the list, looking for the thing that
+	// points to the entry we want to remove_list_entry
+	while ((*indirect) != entry) {
+		indirect = &((*indirect)->next);
+	}
+
+	// .. and just remove it
+	*indirect = entry->next
+}
+*/
+func (l *LinkedList) RemoveBetter(n *Node) {
+	indirect := &(l.head)
+
+	for *indirect != n {
+		indirect = &((*indirect).next)
+	}
+	*indirect = n.next
 	l.length--
 }
 

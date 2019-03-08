@@ -1,6 +1,7 @@
 package linked_list
 
 import (
+	"log"
 	"testing"
 )
 
@@ -66,5 +67,20 @@ func TestRemoveNotFound(t *testing.T) {
 	l.Print()
 
 	l.Remove(n)
+	l.Print()
+}
+
+func TestRemoveBetter(t *testing.T) {
+	l := NewLinkedList()
+	var n *Node
+	for i := 0; i < 10; i++ {
+		v := l.PushBack(i + 1)
+		if i == 6 {
+			n = v
+		}
+	}
+	l.Print()
+	log.Printf("%d to be removed", n.GetValue())
+	l.RemoveBetter(n)
 	l.Print()
 }
