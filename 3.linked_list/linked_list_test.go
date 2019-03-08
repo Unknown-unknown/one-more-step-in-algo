@@ -84,3 +84,15 @@ func TestRemoveBetter(t *testing.T) {
 	l.RemoveBetter(n)
 	l.Print()
 }
+
+func TestRemoveBetterNotFound(t *testing.T) {
+	l := NewLinkedList()
+	var n *Node = NewNode(6)
+	for i := 0; i < 10; i++ {
+		l.PushBack(i + 1)
+	}
+	l.Print()
+
+	l.RemoveBetter(n)
+	l.Print()
+}

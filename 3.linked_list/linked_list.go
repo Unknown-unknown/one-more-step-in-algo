@@ -103,6 +103,7 @@ func (l *LinkedList) Remove(n *Node) {
 }
 
 /* ... and implementation which is from Linus (of "The mind behind Linux" of TED)
+// PS: I love this snippet. Really charming. 💘
 remove_list_entry(entry) {
 	// The "indirect" pointer points to the *address* of the thing we'll update
 	indirect = &head;
@@ -121,6 +122,9 @@ func (l *LinkedList) RemoveBetter(n *Node) {
 	indirect := &(l.head)
 
 	for *indirect != n {
+		if *indirect == nil {
+			return
+		}
 		indirect = &((*indirect).next)
 	}
 	*indirect = n.next
