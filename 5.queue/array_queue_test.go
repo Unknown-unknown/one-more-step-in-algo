@@ -19,4 +19,8 @@ func TestArrayQueue(t *testing.T) {
 	log.Print(q.Pop())
 	log.Print(q.Size())
 	q.Print()
+
+	dict := map[int]int{}
+	dict[1] = 0
+	log.Print(dict[2])
 }
