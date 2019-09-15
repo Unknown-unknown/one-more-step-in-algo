@@ -11,9 +11,9 @@
 
 **对于有序数据**
 
-最好时间复杂度：数组末尾插入数据，无需移动数据，复杂度为O(1)；
-最坏时间复杂度：数组开头插入数据，所有数据需依次移动一位，复杂度为O(n)；
-平均时间复杂度：各个位置插入元素的概率相同，复杂度为(1+2+...n)/n = O(n)。
+* 最好时间复杂度：数组末尾插入数据，无需移动数据，复杂度为O(1)；
+* 最坏时间复杂度：数组开头插入数据，所有数据需依次移动一位，复杂度为O(n)；
+* 平均时间复杂度：各个位置插入元素的概率相同，复杂度为(1+2+...n)/n = O(n)。
 
 **对于无序数据**
 
@@ -64,7 +64,7 @@ hello world
 ## 对应LeetCode题目
 [x]15.Three Sum（求三数之和）：https://leetcode.com/problems/3sum/
 
-[]169.Majority Element（求众数）：https://leetcode.com/problems/majority-element/
+[x]169.Majority Element（求众数）：https://leetcode.com/problems/majority-element/
 
 []41.Missing Positive（求缺失的第一个正数）：https://leetcode.com/problems/first-missing-positive/
 

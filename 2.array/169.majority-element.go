@@ -33,7 +33,38 @@
  * 
  * 
  */
+// v1, O(n)
 func majorityElement(nums []int) int {
-    
+	dict := make(map[int]int)	// key: num, value: count
+	for i := 1; i <= len(nums); i++ {
+		dict[nums[i-1]] = dict[nums[i-1]]+1		
+	}
+	for k, v := range dict {
+		if v > len(nums) / 2 {
+			return k
+		}
+	}
+	return 0
+}
+
+// v2
+func majorityElement(nums []int) int {
+	dict := make(map[int]int)	// key: num, value: count
+	for i := 1; i <= len(nums); i++ {
+		dict[nums[i-1]] = dict[nums[i-1]]+1
+		if dict[nums[i-1]] > len(nums) / 2 {
+			return nums[i-1]
+		}
+	}
+	return 0
+}
+
+// v3
+// ** 看到此法，震惊……虽然，在golang中并没有提高太多效率
+// ** More: https://leetcode-cn.com/problems/majority-element/solution/qiu-zhong-shu-by-leetcode-2/
+import "sort"
+func majorityElement(nums []int) int {
+    sort.Ints(nums)
+    return nums[len(nums)/2]
 }
 

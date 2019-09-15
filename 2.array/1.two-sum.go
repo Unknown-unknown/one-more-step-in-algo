@@ -41,7 +41,8 @@ func twoSum(nums []int, target int) []int {
     dict := make(map[int]int)
     indexes := []int{}
 	for i := 1; i <= len(nums); i++ {
-        complement := target - nums[i-1]
+		complement := target - nums[i-1]
+		// ** 在遍历过程中发现满足符合条件的值，直接返回，提高效率
         if dict[complement] != 0 {	// !! 在v2基础上改进，在循环过程中直接检查是否补数已经存在，因此无需考虑去重
 			return []int{i-1, dict[complement]-1}
 		}
