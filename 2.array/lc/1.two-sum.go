@@ -5,7 +5,6 @@
  */
 /************************************
 - 用 golang 来实现有时候是会有一点别扭的，比如一些常用小函数是没有的，比如对应 js 中 array 的 includes
-- 
 */
 // v1, O(n2)
 func twoSum(nums []int, target int) []int {

@@ -87,6 +87,7 @@ func firstMissingPositive(nums []int) int {
 }
 
 // v3, 
+// * hasn't understood it yet ┑(￣Д ￣)┍
 func firstMissingPositive(nums []int) int {
     n := len(nums)
     i := 0
