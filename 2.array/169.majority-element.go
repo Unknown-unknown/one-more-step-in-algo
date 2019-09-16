@@ -33,6 +33,8 @@
  * 
  * 
  */
+// ** Desc: https://leetcode-cn.com/problems/majority-element/solution/qiu-zhong-shu-by-leetcode-2/
+
 // v1, O(n), 28ms
 func majorityElement(nums []int) int {
 	dict := make(map[int]int)	// key: num, value: count
@@ -47,7 +49,7 @@ func majorityElement(nums []int) int {
 	return 0
 }
 
-// v2, 20ms
+// v2, O(n), 20ms
 func majorityElement(nums []int) int {
 	dict := make(map[int]int)	// key: num, value: count
 	for i := 1; i <= len(nums); i++ {
@@ -59,15 +61,21 @@ func majorityElement(nums []int) int {
 	return 0
 }
 
-// v3: 和v2相比，并没有提高太多效率, 20ms
-// ref: https://stackoverflow.com/questions/23276417/golang-custom-sort-is-faster-than-native-sort
+// v3: 和v2相比，看起来并没有提高太多效率, 20ms
+/* ref: 
+ - https://tip.golang.org/src/sort/sort.go?s=4433:4458#L182
+ - https://stackoverflow.com/questions/23276417/golang-custom-sort-is-faster-than-native-sort
+*/
 import "sort"
 func majorityElement(nums []int) int {
     sort.Ints(nums)
     return nums[len(nums)/2]
 }
 
-// v4: BM Voting, 24ms
+// v4: BM Voting, O(n), 24ms
+/* ref:
+- https://blog.csdn.net/u014248127/article/details/79230221
+*/
 func majorityElement(nums []int) int {
 	count := 0
 	res := 0
@@ -84,5 +92,3 @@ func majorityElement(nums []int) int {
 	}
 	return res
 }
-
-// ** Desc: https://leetcode-cn.com/problems/majority-element/solution/qiu-zhong-shu-by-leetcode-2/
