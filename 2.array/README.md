@@ -62,10 +62,9 @@ hello world
 并没有如原文中讲到的会无限循环。看起来需要查找 **函数调用的栈桢结构** 的细节。
 
 ## 对应LeetCode题目
-[x]15.Three Sum（求三数之和）：https://leetcode.com/problems/3sum/
 
-[x]169.Majority Element（求众数）：https://leetcode.com/problems/majority-element/
-
-[x]41.Missing Positive（求缺失的第一个正数）：https://leetcode.com/problems/first-missing-positive/
+- [x]15.Three Sum（求三数之和）：https://leetcode.com/problems/3sum/
+- [x]169.Majority Element（求众数）：https://leetcode.com/problems/majority-element/
+- [x]41.Missing Positive（求缺失的第一个正数）：https://leetcode.com/problems/first-missing-positive/
 
 
