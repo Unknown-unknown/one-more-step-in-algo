@@ -46,8 +46,13 @@
  * 
  */
 
-// v1, try to divide array and revert the two parts
-// handling corner cases is a little bit complex...
+/* v1, first blink, try to divide array and revert the two parts
+* cons:
+	- handling corner cases is a little bit complex...
+	- difficult to explain...
+	- error-prone...
+* not recommended
+*/ 
 func rotate(nums []int, k int)  {
 	if len(nums) <= 1 || k <= 0 {
 		return
@@ -63,7 +68,7 @@ func rotate(nums []int, k int)  {
 	copy(nums, final)
 }
 
-// v2, extra space used...
+// v2, move one by one
 func rotate(nums []int, k int)  {
 	if len(nums) <= 1 || k == 0 {
         return
