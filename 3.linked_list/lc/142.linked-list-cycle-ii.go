@@ -1,24 +1,26 @@
 /*
- * @lc app=leetcode id=141 lang=golang
+ * @lc app=leetcode id=142 lang=golang
  *
- * [141] Linked List Cycle
+ * [142] Linked List Cycle II
  *
- * https://leetcode.com/problems/linked-list-cycle/description/
+ * https://leetcode.com/problems/linked-list-cycle-ii/description/
  *
  * algorithms
- * Easy (38.06%)
- * Likes:    1787
- * Dislikes: 226
- * Total Accepted:    456.7K
- * Total Submissions: 1.2M
+ * Medium (33.39%)
+ * Likes:    1703
+ * Dislikes: 135
+ * Total Accepted:    239.7K
+ * Total Submissions: 716.3K
  * Testcase Example:  '[3,2,0,-4]\n1'
  *
- * Given a linked list, determine if it has a cycle in it.
+ * Given a linked list, return the node where the cycle begins. If there is no
+ * cycle, return null.
  * 
  * To represent a cycle in the given linked list, we use an integer pos which
  * represents the position (0-indexed) in the linked list where tail connects
  * to. If pos is -1, then there is no cycle in the linked list.
  * 
+ * Note: Do not modify the linked list.
  * 
  * 
  * 
@@ -26,11 +28,9 @@
  * 
  * 
  * Input: head = [3,2,0,-4], pos = 1
- * Output: true
+ * Output: tail connects to node index 1
  * Explanation: There is a cycle in the linked list, where tail connects to the
  * second node.
- * 
- * 
  * 
  * 
  * 
@@ -39,11 +39,9 @@
  * 
  * 
  * Input: head = [1,2], pos = 0
- * Output: true
+ * Output: tail connects to node index 0
  * Explanation: There is a cycle in the linked list, where tail connects to the
  * first node.
- * 
- * 
  * 
  * 
  * 
@@ -52,7 +50,7 @@
  * 
  * 
  * Input: head = [1], pos = -1
- * Output: false
+ * Output: no cycle
  * Explanation: There is no cycle in the linked list.
  * 
  * 
@@ -60,10 +58,8 @@
  * 
  * 
  * 
- * 
- * Follow up:
- * 
- * Can you solve it using O(1) (i.e. constant) memory?
+ * Follow-up:
+ * Can you solve it without using extra space?
  * 
  */
 /**
@@ -74,15 +70,18 @@
  * }
  */
 // ![two-pointer]
-func hasCycle(head *ListNode) bool {
-	slow, fast := head, head
+func detectCycle(head *ListNode) *ListNode {
+    slow, fast := head, head
 	for fast != nil && fast.Next != nil {
 		slow = slow.Next
 		fast = fast.Next.Next
 		if slow == fast {
-			return true
+            for head != fast {
+                head, fast = head.Next, fast.Next   
+            }
+            return head
 		}
 	}
-	return false
+    return nil
 }
 

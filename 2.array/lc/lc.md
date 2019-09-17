@@ -8,19 +8,22 @@ repo 内搜索 `![two-pointer]` 查看所有相关题目。
 - 快慢指针：
     - 一个慢指针，一个快指针，通常前者计数，后者遍历。
     - 一个典型的例子，是从有序数组中移除重复的元素，比如 [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)。
+    - 另一个典型的例子，是 Floyd 算法（又叫龟兔赛跑），主要可以用于链表中环的检测。简而言之，快慢两指针同时从 head 出发，快指针是慢指针速度的 2 倍，若两者相遇，则环存在。
 - 首尾指针：
     - 一个指针从头开始，一个指针从尾开始，根据条件向中间回合，相遇为止。
 
-- 典型习题：(3/57, 20190917)
+- 典型习题：(5/57, 20190917)
 
     - [x][[26] Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
     - [x][[167] Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
     - [x][[189] Rotate Array](https://leetcode.com/problems/rotate-array/)
+    - [x][[141] Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+    - [x][[142] Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
     - [[557] Reverse Words in a String II](https://leetcode.com/problems/reverse-words-in-a-string-ii/description/)(*Locked*)
     - [[125] Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
     - [[11] Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
     - [[238] Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/)
-    - [[15] 3Sum](https://leetcode.com/problems/3sum/)
+    - [x][[15] 3Sum](https://leetcode.com/problems/3sum/)
 
 - 参考：
 
