@@ -17,7 +17,7 @@ func (l *LinkedList) Reversed() {
 		return
 	}
 	current := l.head.next
-	var prev *Node = nil
+	var prev *Node
 	for current != nil {
 		tmp := current.next
 		current.next = prev
@@ -29,11 +29,9 @@ func (l *LinkedList) Reversed() {
 
 func (l *LinkedList) HasRing() bool {
 	if l.head != nil {
-		fast := l.head
-		slow := l.head
+		slow, fast := l.head, l.head
 		for fast != nil && fast.next != nil {
-			fast = fast.next.next
-			slow = slow.next
+			slow, fast = slow.next, fast.next.next
 			if fast == slow {
 				return true
 			}
