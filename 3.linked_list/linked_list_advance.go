@@ -19,10 +19,10 @@ func (l *LinkedList) Reversed() {
 	current := l.head.next
 	var prev *Node
 	for current != nil {
-		tmp := current.next
+		next := current.next
 		current.next = prev
 		prev = current
-		current = tmp
+		current = next
 	}
 	l.head.next = prev
 }
