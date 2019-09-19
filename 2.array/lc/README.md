@@ -13,7 +13,7 @@ repo 内搜索 `![two-pointer]` 查看所有相关题目。
 - 首尾指针：
     - 一个指针从头开始，一个指针从尾开始，根据条件向中间回合，相遇为止。
 
-- 典型习题：(5/57, 20190917)
+- 典型习题：(7/57, 20190919)
 
     - [x][[26] Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
     - [x][[167] Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
@@ -40,4 +40,3 @@ repo 内搜索 `![two-pointer]` 查看所有相关题目。
     - 哈希表的 key 记录字符，value 记录出现频率。
 
 - 典型习题：(2/115, 20190917)
-

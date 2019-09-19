@@ -31,6 +31,7 @@
  * }
  */
 // v1, iteration, runtime > 19.35%, memory > 100%
+// ![sentry]
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	prehead := &ListNode{
 		Val: -1,

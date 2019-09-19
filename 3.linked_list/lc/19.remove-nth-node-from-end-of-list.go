@@ -43,6 +43,7 @@
  */
 
 // ![two-pointer]
+// ![sentry]
 /* 
 * 这里的 pitfall 是，如果直接用 head 作为备份的节点，在 linked list 为 1，n = 1 时，fast.Next 就会成为野指针。
 * 所以，还是加一个空节点，Next 指向 head，这样就不占用原链表的长度了。这算不算是，哨兵/带头链表的应用？🤔
@@ -61,4 +62,3 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	slow.Next = slow.Next.Next
 	return priv.Next
 }
-

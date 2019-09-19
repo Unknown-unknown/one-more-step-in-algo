@@ -42,7 +42,8 @@
 
 又称`Floyd's Tortoise and Hare`，核心在于一快一慢两个指针，快指针速度是慢指针的两倍，一旦两个指针相遇，则一定存在环。
 
-Stack Overflow中[一个回答](https://stackoverflow.com/a/54850855/1594792)下面的图很清晰明了，贴在这里便于理解：
+Stack Overflow中 [一个回答](https://stackoverflow.com/a/54850855/1594792) 下面的图很清晰明了，贴在这里便于理解：
+
 ![快慢指针判断环的存在](https://i.stack.imgur.com/rbtDK.png)
 
 简而言之，假设上图中两指针都从起点出发，在p点相遇时：
