@@ -99,6 +99,7 @@ func longestValidParentheses(s string) int {
 }
 
 // v4, two-pointer, 防止漏解，“((()”
+// ![two-pointer]
 func longestValidParentheses(s string) int {
 	left, right, max := 0, 0, 0
 	for i := 0; i < len(s); i++ {
