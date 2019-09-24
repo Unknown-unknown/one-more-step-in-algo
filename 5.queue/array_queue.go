@@ -10,57 +10,35 @@ type ArrayQueue struct {
 }
 
 func NewArrayQueue(capacity int) *ArrayQueue {
-	return &ArrayQueue{capacity, 0, 0, make([]interface{}, 0, capacity)}
+	return &ArrayQueue{capacity, 0, 0, make([]interface{}, capacity)}
 }
 
-func (q *ArrayQueue) Front() interface{} {
-	if q.top == 0 {
-		return nil
+func (q *ArrayQueue) Enqueue(v interface{}) bool {
+	if q.tail == len(q.data) {
+		return false
 	}
-	return q.data[q.top]
-}
-
-func (q *ArrayQueue) Back() interface{} {
-	if q.tail == 0 {
-		return nil
-	}
-	return q.data[q.tail]
-}
-
-func (q *ArrayQueue) Empty() bool {
-	return q.top == q.tail
-}
-
-func (q *ArrayQueue) Size() int {
-	return q.tail - q.top
-}
-
-func (q *ArrayQueue) Push(v interface{}) {
-	if q.tail+1 > q.capacity {
-		return
-	}
-	q.data = append(q.data, v)
+	q.data[q.tail] = v
 	q.tail++
+	return true
 }
 
-func (q *ArrayQueue) Pop() interface{} {
-	if q.Empty() {
+func (q *ArrayQueue) Dequeue() interface{} {
+	if q.top == q.tail {
 		return nil
 	}
-	ele := q.data[q.top]
-	q.data[q.top] = nil
+	v := q.data[q.top]
 	q.top++
-	return ele
+	return v
 }
 
-func (q *ArrayQueue) Print() {
-	if q.Empty() {
-		fmt.Println("empty queue")
-		return
+func (q *ArrayQueue) Print() string {
+	if q.top == q.tail {
+		return "empty queue"
 	}
-	for i := 0; i < len(q.data); i++ {
-		if q.data[i] != nil {
-			fmt.Println(q.data[i])
-		}
+	res := "head"
+	for i := q.top; i < q.tail; i++ {
+		res += fmt.Sprintf("<- %v", q.data[i])
 	}
+	res += "<-tail"
+	return res
 }

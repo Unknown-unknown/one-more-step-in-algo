@@ -1,51 +1,52 @@
 package queue
 
+import "fmt"
+
 type Node struct {
 	next  *Node
 	value interface{}
 }
 
 type LLQueue struct {
-	top *Node
+	top    *Node
+	tail   *Node
+	length int
 }
 
 func NewLinkedListQueue() *LLQueue {
-	return &LLQueue{&Node{nil, nil}}
+	return &LLQueue{nil, nil, 0}
 }
 
-func (q *LLQueue) Front() interface{} {
-	return q.top.value
-}
-
-func (q *LLQueue) Back() interface{} {
-	cur := q.top
-	for cur != nil && cur.next != nil {
-		cur = cur.next
+func (q *LLQueue) Enqueue(v interface{}) {
+	node := &Node{nil, v}
+	if q.tail == nil {
+		q.top = node
+		q.tail = node
+	} else {
+		q.tail.next = node
+		q.tail = node
 	}
-	return cur.value
+	q.length++
 }
 
-func (q *LLQueue) Empty() bool {
-	return q.top.next == nil
-}
-
-func (q *LLQueue) Size() int {
-	cur := q.top
-	size := 0
-	for cur != nil && cur.next != nil {
-		cur = cur.next
-		size++
+func (q *LLQueue) Dequeue() interface{} {
+	if q.top == nil {
+		return nil
 	}
-	return size
+	v := q.top.value
+	q.top = q.top.next
+	q.length--
+	return v
 }
 
-func (q *LLQueue) Push(v interface{}) {
-
-}
-
-func (q *LLQueue) Pop() interface{} {
-	return nil
-}
-
-func (q *LLQueue) Print() {
+func (q *LLQueue) Print() string {
+	if q.top == nil {
+		return "empty queue"
+	}
+	res := "head"
+	for cur := q.top; cur != nil; cur = cur.next {
+		res += fmt.Sprintf("<- %v", cur.value)
+	}
+	res += "<-tail"
+	return res
 }
