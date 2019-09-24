@@ -24,7 +24,7 @@ func (q *LLQueue) Enqueue(v interface{}) {
 		q.tail = node
 	} else {
 		q.tail.next = node
-		q.tail = node
+		q.tail = q.tail.next
 	}
 	q.length++
 }

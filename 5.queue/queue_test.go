@@ -57,3 +57,26 @@ func TestLinkedListQueue(t *testing.T) {
 	assert.Nil(t, v)
 	fmt.Println(q.Print())
 }
+
+func TestCircularQueue(t *testing.T) {
+	q := NewCircularQueue(5)
+	res := q.Enqueue(1)
+	assert.True(t, res)
+	res = q.Enqueue(2)
+	assert.True(t, res)
+	res = q.Enqueue(3)
+	assert.True(t, res)
+	res = q.Enqueue(4)
+	assert.True(t, res)
+	res = q.Enqueue(5)
+	assert.False(t, res)
+	fmt.Println(q.Print())
+	fmt.Println(q.IsFull())
+	v := q.Dequeue()
+	assert.True(t, v == 1)
+	q.Dequeue()
+	q.Dequeue()
+	v = q.Dequeue()
+	assert.True(t, v == 4)
+	fmt.Println(q.Print())
+}
