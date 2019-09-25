@@ -60,6 +60,8 @@ func TestLinkedListQueue(t *testing.T) {
 
 func TestCircularQueue(t *testing.T) {
 	q := NewCircularQueue(5)
+	isEmpty := q.IsEmpty()
+	assert.True(t, isEmpty)
 	res := q.Enqueue(1)
 	assert.True(t, res)
 	res = q.Enqueue(2)
@@ -68,6 +70,8 @@ func TestCircularQueue(t *testing.T) {
 	assert.True(t, res)
 	res = q.Enqueue(4)
 	assert.True(t, res)
+	isFull := q.IsFull()
+	assert.True(t, isFull)
 	res = q.Enqueue(5)
 	assert.False(t, res)
 	fmt.Println(q.Print())
