@@ -75,6 +75,9 @@ Stack Overflow中 [一个回答](https://stackoverflow.com/a/54850855/1594792) �
 
 ### 1.约瑟夫问题
 
+## Golang实现
+
+意外发现 Golang 的内之库中有 list（双向链表）、ring（环）和 heap（堆）的实现。可以学习一下。
 
 ## 小结
 
