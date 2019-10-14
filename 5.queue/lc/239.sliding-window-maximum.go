@@ -62,6 +62,22 @@ func maxSlidingWindow(nums []int, k int) []int {
 }
 
 // v2, deque(double ended queue)
+// todo: didn't understand it...
 func maxSlidingWindow(nums []int, k int) []int {
-	
+	result := make([]int, 0, len(nums)-k)
+	window := make([]int, 0)
+
+	for i := 0; i < len(nums); i++ {
+		if len(window) > 0 && window[0] <= i-k {
+			window = window[1:]
+		}
+		for len(window) > 0 && nums[window[len(window)-1]] < nums[i] {
+			window = window[:len(window)-1]
+		}
+		window = append(window, i)
+		if i >= k-1 {
+			result = append(result, nums[window[0]])
+		}
+	}
+	return result
 }
