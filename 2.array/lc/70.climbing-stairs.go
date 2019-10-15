@@ -57,7 +57,7 @@ func climbStairs(n int) int {
 
 	return climbStairs(n - 1) + climbStairs(n-2)
 }
-q
+
 // v2, 斐波那契数, 时间复杂度 O(n)，空间复杂度 O(1)
 func climbStairs(n int) int {
 	if n <= 2 {
@@ -72,6 +72,7 @@ func climbStairs(n int) int {
 	return f2
 }
 
+// todo: more solutions....
 
 // @lc code=end
 
