@@ -45,9 +45,33 @@
 
 // 懵逼状态：暴力？基本情况？
 // !!找 最近重复子问题 
+// f(3) = f(1) + f(2)
+// f(4) = f(3) + f(2)
 // @lc code=start
+
+// v1, 暴力破解
 func climbStairs(n int) int {
-    
+    if n == 1 || n == 2 {
+		return n
+	}
+
+	return climbStairs(n - 1) + climbStairs(n-2)
 }
+q
+// v2, 斐波那契数, 时间复杂度 O(n)，空间复杂度 O(1)
+func climbStairs(n int) int {
+	if n <= 2 {
+		return n
+	}
+	f1, f2 := 1, 2
+	for i := 3; i < n+1; i++ {
+		f3 := f1 + f2
+		f1 = f2
+		f2 = f3
+	}
+	return f2
+}
+
+
 // @lc code=end
 
