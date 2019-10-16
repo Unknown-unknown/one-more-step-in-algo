@@ -1,6 +1,7 @@
 package linked_list
 
 // copy and learn from go/1.12.6/libexec/src/container/list/list.go
+// ![source-code]
 type Element struct {
 	next, prev *Element
 	list       *List

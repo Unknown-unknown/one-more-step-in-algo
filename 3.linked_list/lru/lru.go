@@ -4,7 +4,7 @@ import "container/list"
 
 // copy and learn from https://github.com/golang/groupcache/lru/lru.go, not thread-safe
 // a thread-safe implementation: https://github.com/hashicorp/golang-lru
-
+// ![source-code]
 type Cache struct {
 	MaxEntries int
 	OnEvicted  func(key Key, value interface{})

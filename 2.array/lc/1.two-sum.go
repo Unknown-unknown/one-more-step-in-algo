@@ -4,7 +4,7 @@
  * [1] Two Sum
  */
 /************************************
-- 用 golang 来实现有时候是会有一点别扭的，比如一些常用小函数是没有的，比如对应 js 中 array 的 includes
+- 由于 golang 中没有泛型，因此对应 js 中 array 的 includes/filter、max/min 这样的小函数是需要自己实现的。
 */
 // v1, O(n2)
 func twoSum(nums []int, target int) []int {

@@ -69,10 +69,10 @@ func maxArea(height []int) int {
 		area := 0
 		if height[i] < height[j] {
 			area = height[i] * (j - i)
-			i++
+			i++		// 查看是否 i 右侧有大于 height[i] 的存在
 		} else {
 			area = height[j] * (j - i)
-			j--
+			j--		// 查看是否 j 左侧有大于 height[j] 的存在
 		}
 		if area > max {
 			max = area

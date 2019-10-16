@@ -43,13 +43,14 @@
  * 
  */
 
-// 懵逼状态：暴力？基本情况？
+// 懵逼状态怎么办：暴力？最简单的问题怎么解决？如何泛化？
 // !!找 最近重复子问题 
 // f(3) = f(1) + f(2)
 // f(4) = f(3) + f(2)
 // @lc code=start
 
-// v1, 暴力破解
+// v1, 暴力递归，时间复杂度 O(2^n)，空间复杂度 O(n)
+// !! 这里引入的一个问题是：递归的时间复杂度怎么分析？
 func climbStairs(n int) int {
     if n == 1 || n == 2 {
 		return n
@@ -58,7 +59,19 @@ func climbStairs(n int) int {
 	return climbStairs(n - 1) + climbStairs(n-2)
 }
 
-// v2, 斐波那契数, 时间复杂度 O(n)，空间复杂度 O(1)
+// v2, 动态规划法（？），时间复杂度 O(n)，空间复杂度 O(n)
+func climbStairs(n int) int {
+	cache := make([]int, n+1)
+	cache[0] = 1
+	cache[1] = 1
+
+	for i := 2; i <= n; i++ {
+		cache[i] = cache[i-1] + cache[i-2]
+	}
+	return cache[n]
+}
+
+// v3, 斐波那契数, 时间复杂度 O(n)，空间复杂度 O(1)
 func climbStairs(n int) int {
 	if n <= 2 {
 		return n
@@ -71,8 +84,6 @@ func climbStairs(n int) int {
 	}
 	return f2
 }
-
-// todo: more solutions....
 
 // @lc code=end
 
