@@ -41,34 +41,34 @@
 
  // @lc code=start
  // v1, 拼接成字符串，转成数字，加 1，转成字符串，拆分成数字数组 // !越界了……┑(￣Д ￣)┍
- // v2, 检查最后一位，如果小于 9，直接加 1 返回；如果等于 9，变为 0 并前一位加 1；往前继续遍历
-// import (
-// 	"strings"
-// 	"strconv"
-// )
-// func plusOne(digits []int) []int {
-// 	str := []string{}
-// 	for _, d := range digits {
-// 		str = append(str, strconv.Itoa(d))
-// 	}
-// 	d, err := strconv.Atoi(strings.Join(str, ""))
-// 	if err != nil {
-// 		return []int{}
-// 	}
-// 	d = d + 1
-// 	plusedStr := strconv.Itoa(d)
-// 	str = strings.Split(plusedStr, "")
-// 	res := []int{}
-// 	for _, s := range str {
-// 		d, err := strconv.Atoi(s)
-// 		if err != nil {
-// 			return []int{}
-// 		}
-// 		res = append(res, d)
-// 	}
-// 	return res
-// }
+import (
+	"strings"
+	"strconv"
+)
+func plusOne(digits []int) []int {
+	str := []string{}
+	for _, d := range digits {
+		str = append(str, strconv.Itoa(d))
+	}
+	d, err := strconv.Atoi(strings.Join(str, ""))
+	if err != nil {
+		return []int{}
+	}
+	d = d + 1
+	plusedStr := strconv.Itoa(d)
+	str = strings.Split(plusedStr, "")
+	res := []int{}
+	for _, s := range str {
+		d, err := strconv.Atoi(s)
+		if err != nil {
+			return []int{}
+		}
+		res = append(res, d)
+	}
+	return res
+}
 
+ // v2, 检查最后一位，如果小于 9，直接加 1 返回；如果等于 9，变为 0 并前一位加 1；往前继续遍历
 func plusOne(digits []int) []int {
 	for i := len(digits) - 1; i >= 0; i-- {
 		if digits[i] < 9 {

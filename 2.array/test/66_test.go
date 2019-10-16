@@ -38,6 +38,7 @@ func plusOneBruteForce(digits []int) []int {
 	}
 	d, err := strconv.Atoi(strings.Join(str, ""))
 	if err != nil {
+		fmt.Printf("strconv.Atoi err: %v", err)
 		return []int{}
 	}
 	d = d + 1
@@ -47,6 +48,7 @@ func plusOneBruteForce(digits []int) []int {
 	for _, s := range str {
 		d, err := strconv.Atoi(s)
 		if err != nil {
+			fmt.Printf("strconv.Atoi err: %v", err)
 			return []int{}
 		}
 		res = append(res, d)

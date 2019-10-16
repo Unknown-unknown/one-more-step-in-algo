@@ -38,8 +38,35 @@
  */
 
 // @lc code=start
-func merge(nums1 []int, m int, nums2 []int, n int)  {
-    
+// v1, 将 nums2 追加在 nums1 后面，对得到的数组排序，时间复杂度 O((m+n)log(m+n))，并没有充分利用两个已知数组的“已排序”的特性
+import "sort"
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	nums1 = append(nums1[:m], nums2...)
+	sort.Ints(nums1)
 }
+
+// v2, 从后往前数组遍历，时间复杂度为 O(n)
+func merge(nums1 []int, m int, nums2 []int, n int) {
+	i := m - 1
+	j := n - 1
+	k := m + n - 1
+	for i >= 0 && j >= 0 {
+		if nums1[i] > nums2[j] {
+			nums1[k] = nums1[i]
+			k--
+			i--
+		} else {
+			nums1[k] = nums2[j]
+			k--
+			j--
+		}
+	}
+	for j >= 0 {	// 如果 nums2 有剩余，需要继续向前填充
+		nums1[k] = nums2[j]
+		k--
+		j--
+	}
+}
+
 // @lc code=end
 
