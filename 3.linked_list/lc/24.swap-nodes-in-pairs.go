@@ -36,8 +36,37 @@
  *     Next *ListNode
  * }
  */
+
+// v1, iterative，添加头部哨兵。对于一次检查，需要更新的就是三个 Next 指针。
+// 更新的顺序是先把后面的 node 都勾连上，在返回来勾连前面的。
+/* prev[->]1[->]2[->]3->4
+=> prev->2->1->3->4
+=> prev->2->1->4->3
+*/
+// ![sentry]
 func swapPairs(head *ListNode) *ListNode {
-    
+	if head == nil || head.Next == nil {
+		return head
+	}
+	pre := &ListNode{0, head}
+	current := pre
+	for current.Next != nil && current.Next.Next != nil {
+		start := current.Next
+		end := current.Next.Next
+		current.Next = end
+		start.Next = end.Next
+		end.Next = start
+		current = start
+	}
+	return pre.Next
 }
+
+// v2, recursion
+// func swapPairs(head *ListNode) *ListNode {
+// 	if head == nil || head.Next == nil {
+// 		return head
+// 	}
+// 	next := head.Next
+// }
 // @lc code=end
 
