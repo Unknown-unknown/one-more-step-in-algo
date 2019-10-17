@@ -42,6 +42,7 @@
 /* prev[->]1[->]2[->]3->4
 => prev->2->1->3->4
 => prev->2->1->4->3
+时间复杂度 O(n)，空间复杂度 O(1)
 */
 // ![sentry]
 func swapPairs(head *ListNode) *ListNode {
@@ -61,12 +62,22 @@ func swapPairs(head *ListNode) *ListNode {
 	return pre.Next
 }
 
-// v2, recursion
-// func swapPairs(head *ListNode) *ListNode {
-// 	if head == nil || head.Next == nil {
-// 		return head
-// 	}
-// 	next := head.Next
-// }
+// v2, recursion，把前两个节点看成一个整体，只管更新前面两个 Next 指针，更新顺序依然是先勾后面的，再往前勾；
+// 前两个之外的节点看成另一个整体（一个黑盒），只管传入需要处理的头指针，直接使用返回来的结果。至于里面的实现怎样，暂且不管。只不过对于本题而言，黑盒的函数刚好是原函数本身。
+// 这算不算是提现了分治算法：分而治之的思想？
+/* 1[->]2[->]3->4
+=> 2->1->3->4
+=> 2->1->4->3
+*/
+func swapPairs(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	next := head.Next
+	head.Next = swapPairs(next.Next)
+	next.Next = head
+
+	return next
+}
 // @lc code=end
 

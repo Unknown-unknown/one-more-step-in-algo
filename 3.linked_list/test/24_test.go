@@ -6,6 +6,16 @@ import (
 )
 
 func Test_24(t *testing.T) {
+	head := initList()
+	swapped := swapPairsIterative(head)
+	fmt.Printf("swapped: %v", swapped)
+
+	head = initList()
+	swapped = swapPairsIterative(head)
+	fmt.Printf("swapped: %v", swapped)
+}
+
+func initList() *ListNode {
 	head := ListNode{1, nil}
 	first := ListNode{2, nil}
 	second := ListNode{3, nil}
@@ -15,8 +25,7 @@ func Test_24(t *testing.T) {
 	first.Next = &second
 	second.Next = &third
 	third.Next = &fourth
-	swapped := swapPairsIterative(&head)
-	fmt.Printf("swapped: %v", swapped)
+	return &head
 }
 
 /* prev->1->2->3->4
@@ -38,4 +47,19 @@ func swapPairsIterative(head *ListNode) *ListNode {
 		cur = start
 	}
 	return prev.Next
+}
+
+/* 1->2->3->4
+=> 2->1->3->4
+=> 2->1->4->3
+*/
+func swapPairsRecursion(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	next := head.Next
+	head.Next = swapPairsRecursion(next.Next)
+	next.Next = head
+
+	return next
 }
