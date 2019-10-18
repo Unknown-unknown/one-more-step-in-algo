@@ -13,7 +13,7 @@ func Test_70(t *testing.T) {
 		4: 5,
 	}
 	for k, v := range cases {
-		actual := climbStairs(k)
+		actual := climbStairsFab(k)
 		fmt.Printf("%d stairs expected: %d, actual: %d\n", k, v, actual)
 	}
 }
@@ -23,18 +23,17 @@ func climbStairsBruteForce(n int) int {
 		return n
 	}
 
-	return climbStairs(n-1) + climbStairs(n-2)
+	return climbStairsBruteForce(n-1) + climbStairsBruteForce(n-2)
 }
 
-func climbStairs(n int) int {
+func climbStairsFab(n int) int {
 	if n <= 2 {
 		return n
 	}
 	f1, f2 := 1, 2
 	for i := 3; i < n+1; i++ {
 		f3 := f1 + f2
-		f1 = f2
-		f2 = f3
+		f1, f2 = f2, f3
 	}
 	return f2
 }

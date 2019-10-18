@@ -66,92 +66,91 @@
  */
 // todo: double check, test not passed
 type MyCircularDeque struct {
-	top int
-	tail int
-	length int
-	data []int
+	data     *list.List
+	capacity int
 }
-
 
 /** Initialize your data structure here. Set the size of the deque to be k. */
 func Constructor(k int) MyCircularDeque {
-    return MyCircularDeque{0,0,0,make([]int,k+1)}
+	return MyCircularDeque{new(list.List), k}
 }
-
 
 /** Adds an item at the front of Deque. Return true if the operation is successful. */
 func (this *MyCircularDeque) InsertFront(value int) bool {
-    if this.IsFull() {
+	// already full
+	if this.data.Len() >= this.capacity {
 		return false
 	}
-	this.data[(this.top-1+len(this.data))%len(this.data)] = value
-	this.top = (this.top-1+len(this.data))%len(this.data)
-	this.length++
-	return true
+	newNode := this.data.PushFront(value)
+	if newNode != nil {
+		return true
+	}
+	return false
 }
-
 
 /** Adds an item at the rear of Deque. Return true if the operation is successful. */
 func (this *MyCircularDeque) InsertLast(value int) bool {
-	if this.IsFull() {
+	// already full
+	if this.data.Len() >= this.capacity {
 		return false
 	}
-	this.data[(this.tail+1)%len(this.data)] = value
-	this.tail = (this.tail+1)%len(this.data)
-	this.length++
-	return true
+	newNode := this.data.PushBack(value)
+	if newNode != nil {
+		return true
+	}
+	return false
 }
-
 
 /** Deletes an item from the front of Deque. Return true if the operation is successful. */
 func (this *MyCircularDeque) DeleteFront() bool {
-	if this.IsEmpty() {
-		return false
+	front := this.data.Front()
+	if front != nil {
+		node := this.data.Remove(front)
+		if node != nil {
+			return true
+		}
 	}
-	this.top = (this.top +1) %len(this.data)
-	this.length--
-	return true
+	return false
 }
-
 
 /** Deletes an item from the rear of Deque. Return true if the operation is successful. */
 func (this *MyCircularDeque) DeleteLast() bool {
-	if this.IsEmpty() {
-		return false
+	back := this.data.Back()
+	if back != nil {
+		node := this.data.Remove(back)
+		if node != nil {
+			return true
+		}
 	}
-	this.tail = (this.tail-1)%len(this.data)
-	this.length--
-	return true
+	return false
 }
-
 
 /** Get the front item from the deque. */
 func (this *MyCircularDeque) GetFront() int {
-    if this.IsEmpty() {
-		return -1
+	front := this.data.Front()
+	if front != nil {
+		return this.data.Front().Value.(int)
 	}
-	return this.data[this.top]
+	return -1
 }
-
 
 /** Get the last item from the deque. */
 func (this *MyCircularDeque) GetRear() int {
-	if this.IsEmpty() {
-		return -1
+	back := this.data.Back()
+	if back != nil {
+		return this.data.Back().Value.(int)
 	}
-	return this.data[(this.tail-1+len(this.data))%len(this.data)]
+	return -1
 }
-
 
 /** Checks whether the circular deque is empty or not. */
 func (this *MyCircularDeque) IsEmpty() bool {
-    return this.length == 0
+	return this.data.Len() == 0
 }
-
 
 /** Checks whether the circular deque is full or not. */
 func (this *MyCircularDeque) IsFull() bool {
-    return this.length == len(this.data)-1
+	return this.data.Len() == this.capacity
 }
 
 
