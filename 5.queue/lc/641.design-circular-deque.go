@@ -64,8 +64,10 @@
  * 
  * 
  */
-// todo: double check, test not passed
-type MyCircularDeque struct {
+
+ import "container/list"
+ 
+ type MyCircularDeque struct {
 	data     *list.List
 	capacity int
 }
