@@ -19,7 +19,7 @@ func twoSum(nums []int, target int) []int {
 	return indexes
 }
 
-// v2, O(n)
+// v2, O(n)，哈希表，两遍 for 循环
 func twoSum(nums []int, target int) []int {
     dict := make(map[int]int)
 	for i := 1; i <= len(nums); i++ {	// 因为 map 在 key 不存在时，value 为0。因此从1开始循环
@@ -35,7 +35,7 @@ func twoSum(nums []int, target int) []int {
 	return indexes
 }
 
-// v3, O(n)
+// v3, O(n)，哈希表，一遍 for 循环
 func twoSum(nums []int, target int) []int {
     dict := make(map[int]int)
     indexes := []int{}

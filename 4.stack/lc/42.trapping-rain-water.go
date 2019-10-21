@@ -73,6 +73,7 @@ func trap(height []int) int {
 	}
 	return sum
 }
+
 func min(x, y int) int {
 	if x < y {
 		return x
