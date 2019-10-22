@@ -2,6 +2,7 @@ package queue
 
 import "fmt"
 
+// * 这里需要注意的一个点是，因为有一个元素的位置是被 tail 占用的，所以真正可用的 capacity 是 n - 1
 type CircularQueue struct {
 	data     []interface{}
 	capacity int

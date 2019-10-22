@@ -65,9 +65,11 @@
  * 
  */
 
- import "container/list"
- 
- type MyCircularDeque struct {
+// v1, 直接使用 golang 的 list 实现，算不算偷懒？23333333
+// v2, 参 ../circular_queue.go，自己在 slice 基础上封装一个，但提供的方法并不完善，目前只有 enqueue 和 dequeue。
+// ![todo]
+import "container/list"
+type MyCircularDeque struct {
 	data     *list.List
 	capacity int
 }

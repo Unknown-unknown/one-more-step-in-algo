@@ -35,3 +35,15 @@
 - 回溯算法
 - 动态规划
 - 字符串匹配算法
+
+## 常见算法复杂度
+
+![commonbigo](commonbigo.png)
+
+（来自 [https://www.bigocheatsheet.com](https://www.bigocheatsheet.com))
+
+## 常见排序算法复杂度
+
+![arraysort](arraysort.png)
+
+（来自 [https://www.bigocheatsheet.com](https://www.bigocheatsheet.com))
