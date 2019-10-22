@@ -38,7 +38,7 @@
 // @lc code=start
 // *小结: 归根到底，是思考如何表示唯一字符串，有的直接用 string，有的用 []byte，有的更精细一点用 [26]byte。
 // v1, 暴力，存每个 string 对应的频次 map，然后比较
-// v2, hashmap, 遍历所有 string，对每一个 string sort 后存入 map，最后把 map 转成 array，时间复杂度 O(nklog(k))
+// v2, hashmap, 遍历所有 string，对每一个 string sort 后存入对应 key 的 map，最后把 map 转成 array，时间复杂度 O(nklog(k))
 import "sort"
 func groupAnagrams(strs []string) [][]string {
 	groups := make(map[string][]string)
