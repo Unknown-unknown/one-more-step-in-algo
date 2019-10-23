@@ -45,8 +45,9 @@
 
 // 懵逼状态怎么办：暴力？最简单的问题怎么解决？如何泛化？
 // !!找 最近重复子问题 
-// f(3) = f(1) + f(2)
+// f(3) = f(1) + f(2)，mutual exclusive，complete exhaustive
 // f(4) = f(3) + f(2)
+// f(n) = f(n-1) + f(n-2)
 // @lc code=start
 
 // v1, 暴力递归，时间复杂度 O(2^n)，空间复杂度 O(n)
