@@ -57,8 +57,42 @@
  * @param {Node} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
-    
-};
-// @lc code=end
 
+// v1, bfs
+var levelOrder = function (root) {
+    if (!root == null) return []
+
+    const res = []
+    const queue = [root]
+    while (queue.length > 0) {
+        let currentLen = queue.length
+        let tmp = []
+        for (let i = 0; i < currentLen; i++) {
+            let node = queue.shift()
+            console.log("⬆️  shift from queue:", node.val, queue)
+            if (node.children) {
+                for (const child of node.children) {
+                    queue.push(child)
+                    console.log("⬇️  push to queue:", child.val, queue)
+                }
+            }
+            tmp.push(node.val)
+            console.log("⏬  push to tmp:", node.val, tmp)
+        }
+        res.push(tmp)
+    }
+
+    return res
+};
+
+// for test
+// function Node(val, children) {
+//     this.val = val;
+//     this.children = children;
+// };
+
+// let children = [new Node(1, [new Node(4, null), new Node(5, null)]), new Node(2, [new Node(6, null)]), new Node(3, null)]
+// let root = new Node(0, children)
+// let res = levelOrder(root)
+// console.log(res)
+// @lc code=end
