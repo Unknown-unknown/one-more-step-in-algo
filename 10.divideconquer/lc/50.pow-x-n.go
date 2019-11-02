@@ -78,6 +78,8 @@ func myPow(x float64, n int) float64 {
 }
 
 // v3, 牛顿迭代法，时间复杂度 O(logn)，空间复杂度 O(1)
+// 让长方形变得“更像正方形”的思路：
+// http://www.cs.cornell.edu/courses/cs1112/2018fa/files/Notes/egL01/L1post.pdf#view=Fit
 func myPow(x float64, n int) float64 {
 	if n == 0 {
 		return 1
