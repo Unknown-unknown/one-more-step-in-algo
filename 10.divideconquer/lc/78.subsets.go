@@ -38,7 +38,8 @@
 
 // @lc code=start
 // v1, 可以转换成 左右括号组合 的思路，n 个格子，可选可不选
-// 比如，将 [1,2,3] 变成 [1,0.0] 这样选或是不选的数组
+// 比如，将 [1,2,3] 变成 [1,0,0] 这样选或是不选的数组
+// ![backtracking]
 func subsets(nums []int) [][]int {
 	res := [][]int{}
 	if nums == nil {
