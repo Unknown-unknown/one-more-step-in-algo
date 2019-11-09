@@ -69,3 +69,10 @@ def BFS(graph, start, end):
     # other processing work
     ...
 ```
+
+```lang=golang
+const MaxUint = ^uint(0) 
+const MinUint = 0 
+const MaxInt = int(MaxUint >> 1) 
+const MinInt = -MaxInt - 1
+```
