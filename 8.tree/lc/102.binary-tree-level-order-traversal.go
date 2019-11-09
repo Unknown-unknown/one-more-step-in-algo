@@ -15,28 +15,28 @@
  *
  * Given a binary tree, return the level order traversal of its nodes' values.
  * (ie, from left to right, level by level).
- * 
- * 
+ *
+ *
  * For example:
  * Given binary tree [3,9,20,null,null,15,7],
- * 
+ *
  * ⁠   3
  * ⁠  / \
  * ⁠ 9  20
  * ⁠   /  \
  * ⁠  15   7
- * 
- * 
- * 
+ *
+ *
+ *
  * return its level order traversal as:
- * 
+ *
  * [
  * ⁠ [3],
  * ⁠ [9,20],
  * ⁠ [15,7]
  * ]
- * 
- * 
+ *
+ *
  */
 
 // @lc code=start
@@ -58,19 +58,19 @@ func levelOrder(root *TreeNode) [][]int {
 func helper(root *TreeNode, level int, res *[][]int) {
 	// terminator
 	if root == nil {
-		return 
+		return
 	}
 
 	// current level logic
 	if len(*res) < level {
 		*res = append(*res, []int{root.Val})
 	} else {
-		(*res)[level - 1] = append((*res)[level - 1], root.Val)
+		(*res)[level-1] = append((*res)[level-1], root.Val)
 	}
 
 	// drill down
-	helper(root.Left, level + 1, res)
-	helper(root.Right, level + 1, res)
+	helper(root.Left, level+1, res)
+	helper(root.Right, level+1, res)
 	// reverse if needed
 }
 
@@ -82,7 +82,7 @@ func levelOrder(root *TreeNode) [][]int {
 	res := [][]int{}
 	queue := make([]*TreeNode, 0)
 	queue = append(queue, root)
-	level := 0 
+	level := 0
 	for len(queue) > 0 {
 		currentLen := len(queue)
 		for i := 0; i < currentLen; i++ {
@@ -105,5 +105,6 @@ func levelOrder(root *TreeNode) [][]int {
 
 	return res
 }
+
 // @lc code=end
 
