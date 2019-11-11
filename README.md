@@ -47,3 +47,8 @@
 ![arraysort](arraysort.png)
 
 （来自 [https://www.bigocheatsheet.com](https://www.bigocheatsheet.com))
+
+## 被忽略的 Golang 小问题
+
+- append 对于 runtime 的影响
+- for-loop
