@@ -52,3 +52,4 @@
 
 - append 对于 runtime 的影响
 - for-loop
+- http package：[https://medium.com/@nate510/don-t-use-go-s-default-http-client-4804cb19f779](https://medium.com/@nate510/don-t-use-go-s-default-http-client-4804cb19f779)
