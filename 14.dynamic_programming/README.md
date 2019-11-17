@@ -71,6 +71,7 @@ dp[i][j][1] = max(dp[i-1][k][0], dp[i-1][k-1][0]-prices[i])
 1. 对于 1143题 LCS 问题（Longest Common Subsequence），感觉如下图示更容易理解：
 
 ![1143lcs](./1143lcs.png)
+
 (原图来自：[https://leetcode.com/problems/longest-common-subsequence/discuss/348884/C%2B%2B-with-picture-O(nm)](https://leetcode.com/problems/longest-common-subsequence/discuss/348884/C%2B%2B-with-picture-O(nm)))
 
 即在原有 `m * n` 表格的基础上，最前面增加一行一列，变成 `(m+1) * (n+1)` 的表格，这样在迭代求解时 for 循环的范围就变成了 `[1, m]`，方便比较上一行/上一列与当前行/列的关系，并更新数据，最终结果位于 `dp[m][n]`。
