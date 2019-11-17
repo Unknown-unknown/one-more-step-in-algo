@@ -15,25 +15,25 @@
  *
  * Given n non-negative integers representing an elevation map where the width
  * of each bar is 1, compute how much water it is able to trap after raining.
- * 
- * 
+ *
+ *
  * The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1].
  * In this case, 6 units of rain water (blue section) are being trapped. Thanks
  * Marcos for contributing this image!
- * 
+ *
  * Example:
- * 
- * 
+ *
+ *
  * Input: [0,1,0,2,1,0,1,3,2,1,2,1]
  * Output: 6
- * 
+ *
  */
 
 // @lc code=start
 // v1, 左右两指针
 // ![two-pointer]
 func trap(height []int) int {
-	l, r := 0, len(height) - 1
+	l, r := 0, len(height)-1
 	level, water, lower := 0, 0, 0
 	for l < r {
 		if height[l] < height[r] {
@@ -51,7 +51,7 @@ func trap(height []int) int {
 	return water
 }
 
-// v2, 栈
+// v2, 栈，单调递减，类比 84 题（单调递增）
 func trap(height []int) int {
 	current, sum := 0, 0
 	stack := make([]int, 0)
@@ -59,7 +59,7 @@ func trap(height []int) int {
 		for len(stack) > 0 && height[current] > height[stack[len(stack)-1]] {
 			// pop of stack
 			prevHeight := height[stack[len(stack)-1]]
-			stack = stack[0:len(stack)-1]
+			stack = stack[0 : len(stack)-1]
 			// if stack is empty
 			if len(stack) == 0 {
 				break
@@ -80,5 +80,6 @@ func min(x, y int) int {
 	}
 	return y
 }
+
 // @lc code=end
 
