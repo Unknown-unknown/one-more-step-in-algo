@@ -61,26 +61,24 @@ func levelOrderBFS(root *TreeNode) [][]int {
 	queue = append(queue, root)
 	level := 0
 	for len(queue) > 0 {
-		currentLen := len(queue)
-		for i := 0; i < currentLen; i++ {
-			node := queue[0]
+		curLength := len(queue)
+		for i := 0; i < curLength; i++ {
+			cur := queue[0]
 			queue = queue[1:]
-			if node.Left != nil {
-				queue = append(queue, node.Left)
+			if cur.Left != nil {
+				queue = append(queue, cur.Left)
 			}
-			if node.Right != nil {
-				queue = append(queue, node.Right)
+			if cur.Right != nil {
+				queue = append(queue, cur.Right)
 			}
 			if len(res) <= level {
-				res = append(res, []int{node.Val})
+				res = append(res, []int{cur.Val})
 			} else {
-				res[level] = append(res[level], node.Val)
+				res[level] = append(res[level], cur.Val)
 			}
-			fmt.Printf("i = %d, currentLen = %d, queue = %v, res = %v\n", i, currentLen, queue, res)
 		}
 		level++
 	}
-
 	return res
 }
 
