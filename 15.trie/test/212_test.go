@@ -57,7 +57,7 @@ func dfs(board [][]byte, trie *Trie1, i, j int, res *[]string) {
 	if trie.isEnd {
 		*res = append(*res, trie.word)
 		trie.isEnd = false
-		trie.word = ""
+		trie.word = "" // de-duplicate
 	}
 	if i < 0 || i >= len(board) || j < 0 || j >= len(board[i]) {
 		return
