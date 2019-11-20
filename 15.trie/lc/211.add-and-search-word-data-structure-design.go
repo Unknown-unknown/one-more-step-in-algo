@@ -58,9 +58,7 @@ func Constructor() WordDictionary {
 func (this *WordDictionary) AddWord(word string) {
 	for _, v := range []rune(word) {
 		if this.next[v] == nil {
-			this.next[v] = &WordDictionary{
-				next: make(map[rune]*WordDictionary),
-			}
+			this.next[v] = &WordDictionary{next: make(map[rune]*WordDictionary)}
 		}
 		this = this.next[v]
 	}

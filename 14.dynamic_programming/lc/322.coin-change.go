@@ -47,6 +47,8 @@
  *	- 可以放入背包的每种物品的价值 ~ coins
  *	- 每种 coin 的花费是 1
  *	- 最终问题转化为：填满背包的最小花费是多少
+ * - F[i, v] = max{F[i − 1, v], F[i − 1, v − C i ] + W i }
+ * 前 i 种方案，花费金额为 v，所能获得的加大价值 = max(不使用第i种方案获得价值，使用第i种方案获得的总价值)
  */
 func coinChange(coins []int, amount int) int {
 	max := amount + 1
