@@ -81,5 +81,60 @@ func sink(i, j int) {
 	}
 }
 
+// v2, disjoint-set
+var count int
+
+func numIslands(grid [][]byte) int {
+	g := grid
+	dx, dy := []int{1, 0, -1, 0}, []int{0, 1, 0, -1}
+
+	row := len(g)
+	if row == 0 {
+		return 0
+	}
+	col := len(g[0])
+	parent := make([]int, row*col)
+	count = 0
+
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			if g[i][j] == '1' {
+				parent[i*col+j] = i*col + j
+				count++
+			}
+		}
+	}
+
+	for i := 0; i < row; i++ {
+		for j := 0; j < col; j++ {
+			if g[i][j] == '1' {
+				for k := 0; k < len(dx); k++ {
+					tmpX, tmpY := i+dx[k], j+dy[k]
+					if tmpX >= 0 && tmpX < row && tmpY >= 0 && tmpY < col && grid[tmpX][tmpY] == '1' {
+						unionIsland(tmpX*col+tmpY, i*col+j, parent)
+					}
+				}
+			}
+		}
+	}
+
+	return count
+}
+
+func unionIsland(i, j int, parent []int) {
+	xset, yset := findIsland(i, parent), findIsland(j, parent)
+	if xset != yset {
+		parent[xset] = yset
+		count--
+	}
+}
+
+func findIsland(i int, parent []int) int {
+	if parent[i] == i {
+		return i
+	}
+	return findIsland(parent[i], parent)
+}
+
 // @lc code=end
 
