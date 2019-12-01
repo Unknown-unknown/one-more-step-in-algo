@@ -81,7 +81,8 @@ func hammingWeight(num uint32) int {
 	return count
 }
 
-// v2, bit manipulation
+// v2, %2 或 >>1
+// v3, bit manipulation
 func hammingWeight(num uint32) int {
 	count := 0
 	for num != 0 {
