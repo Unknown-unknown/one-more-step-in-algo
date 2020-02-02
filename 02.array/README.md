@@ -63,7 +63,12 @@ hello world
 
 ## 对应LeetCode题目
 
-- [x]15.Three Sum（求三数之和）：https://leetcode.com/problems/3sum/
-- [x]169.Majority Element（求众数）：https://leetcode.com/problems/majority-element/
-- [x]41.Missing Positive（求缺失的第一个正数）：https://leetcode.com/problems/first-missing-positive/
+- [x]11.Container With Most Water: https://leetcode.com/problems/container-with-most-water/
+- [x]283.Move Zeroes: https://leetcode.com/problems/move-zeroes/
+- [x]70.Climbing Stairs: https://leetcode.com/problems/climbing-stairs/
+- [x]15.Three Sum（求三数之和）: https://leetcode.com/problems/3sum/
+
+- [x]169.Majority Element（求众数）: https://leetcode.com/problems/majority-element/
+- [x]41.Missing Positive（求缺失的第一个正数）: https://leetcode.com/problems/first-missing-positive/
+
 

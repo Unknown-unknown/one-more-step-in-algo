@@ -1,4 +1,4 @@
-# 链表
+# 链表（Linked List）
 
 ## 链表与数组对比
 
@@ -75,10 +75,48 @@ Stack Overflow中 [一个回答](https://stackoverflow.com/a/54850855/1594792) �
 
 ### 1.约瑟夫问题
 
-## Golang实现
+## Go 实现
 
-意外发现 Golang 的内之库中有 list（双向链表）、ring（环）和 heap（堆）的实现。可以学习一下。
+意外发现 Go 的内库中有 list（双向链表）、ring（环）和 heap（堆）的实现。可以学习一下。
+
+## 对应LeetCode题目
+
+解法固定，熟能生巧
+
+- []https://leetcode-cn.com/problems/reverse-linked-list/
+- []https://leetcode-cn.com/problems/swap-nodes-in-pairs
+- []https://leetcode-cn.com/problems/linked-list-cycle
+- []https://leetcode-cn.com/problems/linked-list-cycle-ii
+- []https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
 
 ## 小结
 
 - 似乎链表的操作中，利用一快一慢两个指针的思路很常见。
+
+# 跳表（Skip List）
+
+为什么要有跳表？我们知道链表prepend、append、insert、delete的时间复杂度都是 O(1)，唯有lookup的时间复杂度是 O(n)，那么如何给链表加速呢？
+
+添加第一级索引、第二级索引，以此类推增加多级索引。
+
+可以学习跳表这种升维度 + 空间换时间的思想。
+
+## 时间复杂度分析
+
+若 n 为节点数量，则第一级索引节点数为 n/2，第二级为 n/4，第三级为 n/8，第 k 级为 n/(2^k)。
+假设索引有 h 级，最高级的索引有 2 个节点，n/(2^h) = 2，则 h = log2(n)-1。
+因此，在跳表中查询任意数据的时间复杂度为 O(logn)。
+
+## 应用举例
+
+Redis：[https://redisbook.readthedocs.io/en/latest/internal-datastruct/skiplist.html](https://redisbook.readthedocs.io/en/latest/internal-datastruct/skiplist.html)
+
+# Homework
+
+[]https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/ 
+[]https://leetcode-cn.com/problems/rotate-array/ 
+[]https://leetcode-cn.com/problems/merge-two-sorted-lists/
+[]https://leetcode-cn.com/problems/merge-sorted-array/
+[]https://leetcode-cn.com/problems/two-sum/
+[]https://leetcode-cn.com/problems/move-zeroes/
+[]https://leetcode-cn.com/problems/plus-one/

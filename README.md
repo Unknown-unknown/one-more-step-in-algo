@@ -8,9 +8,9 @@
 - 自身特点
 - 适合解决的问题
 - 实际的应用场景
+- 对应 LeetCode 习题
 
-![guideline](guideline.jpg)
-(image from Geektime column)
+![guideline](guideline.png)
 
 **10个数据结构：**
 - ~~数组~~
@@ -48,7 +48,7 @@
 
 （来自 [https://www.bigocheatsheet.com](https://www.bigocheatsheet.com))
 
-## 被忽略的 Golang 小问题
+## 被忽略的 Go 实现的小问题
 
 - append 对于 runtime 的影响
 - for-loop
